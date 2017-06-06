@@ -216,12 +216,12 @@ final class World extends ClubPenguin {
 			return $dataArray;
 		};
 		
-		$rooms = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/rooms.json");
+		$rooms = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/rooms.json");
 		foreach($rooms as $room => $details) {
 			$this->rooms[$room] = new Room($room, sizeof($this->rooms) + 1, ($details['path'] == '' ? true : false));
 		}
 		
-		$stamps = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/stamps.json");
+		$stamps = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/stamps.json");
 		foreach($stamps as $stampCat) {
 			if($stampCat['parent_group_id'] == 8) {
 				foreach($stampCat['stamps'] as $stamp) {
@@ -253,7 +253,7 @@ final class World extends ClubPenguin {
 			})
 		);
 		
-		$items = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/paper_items.json");
+		$items = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/paper_items.json");
 		foreach($items as $itemIndex => $item) {
 			$itemId = $item["paper_item_id"];
 			
@@ -270,7 +270,7 @@ final class World extends ClubPenguin {
 			unset($items[$itemIndex]);
 		}
 		
-		$locations = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/igloo_locations.json");
+		$locations = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/igloo_locations.json");
 		foreach($locations as $locationIndex => $location) {
 			$locationId = $location["igloo_location_id"];
 			$this->locations[$locationId] = $location["cost"];
@@ -278,7 +278,7 @@ final class World extends ClubPenguin {
 			unset($locations[$locationIndex]);
 		}
 		
-		$furnitureList = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/furniture_items.json");
+		$furnitureList = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/furniture_items.json");
 		foreach($furnitureList as $furnitureIndex => $furniture) {
 			$furnitureId = $furniture["furniture_item_id"];
 			$this->furniture[$furnitureId] = $furniture["cost"];
@@ -286,7 +286,7 @@ final class World extends ClubPenguin {
 			unset($furnitureList[$furnitureIndex]);
 		}
 		
-		$floors = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/igloo_floors.json");
+		$floors = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/igloo_floors.json");
 		foreach($floors as $floorIndex => $floor) {
 			$floorId = $floor["igloo_floor_id"];
 			$this->floors[$floorId] = $floor["cost"];
@@ -294,14 +294,14 @@ final class World extends ClubPenguin {
 			unset($floors[$floorIndex]);
 		}
 		
-		$igloos = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/igloos.json");
+		$igloos = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/igloos.json");
 		foreach($igloos as $iglooId => $igloo) {
 			$this->igloos[$iglooId] = $igloo["cost"];
 			
 			unset($igloos[$iglooId]);
 		}
 		
-		$careItems = $downloadAndDecode("http://media1.clubpenguin.com/play/en/web_service/game_configs/puffle_items.json");
+		$careItems = $downloadAndDecode("https://icer.ink/media1.clubpenguin.com/play/web_service/game_configs/puffle_items.json");
 		foreach($careItems as $careId => $careItem) {
 			$itemId = $careItem["puffle_item_id"];
 			
