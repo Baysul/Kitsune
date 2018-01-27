@@ -22,6 +22,10 @@ class Room {
 			$penguin->send("%xt%jx%{$penguin->room->internalId}%{$this->externalId}%");
 		} else {
 			if($this->isGame) {
+				if($penguin->room->externalId > 1000) {
+					return; //Insert any punishment here	
+				}
+				
 				$nonBlackholeGames = array(900, 909, 956, 950, 963, 121);
 				
 				if(in_array($this->externalId, $nonBlackholeGames)) {
