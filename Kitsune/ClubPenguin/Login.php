@@ -48,7 +48,7 @@ final class Login extends ClubPenguin {
 				$this->removePenguin($penguin);
 			}
 		} else {			
-			$confirmationHash = md5($penguin->randomKey);
+			$confirmationHash = md5(random_bytes(24)); 
 			$friendsKey = md5($penguinData["ID"]); // May need to change this later!
 			$loginTime = time();
 			
